@@ -1,0 +1,18 @@
+[submodule "acr-cdr"]
+	path = acr-cdr
+	url = git@github.com:mitrefccace/acr-cdr.git
+[submodule "acrdemo-agent"]
+	path = acrdemo-agent
+	url = git@github.com:mitrefccace/acrdemo-agent.git
+[submodule "acrdemo-provider"]
+	path = acrdemo-provider
+	url = git@github.com:mitrefccace/acrdemo-provider.git
+[submodule "asterisk"]
+	path = asterisk
+	url = git@github.com:mitrefccace/asterisk.git
+[submodule "managementportal"]
+	path = managementportal
+	url = git@github.com:mitrefccace/managementportal.git
+[submodule "acedirect"]
+	path = acedirect
+	url = git@github.com:mitrefccace/acedirect.git
