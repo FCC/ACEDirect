@@ -6,7 +6,7 @@ ACE Direct Public Release
 ## Components (IMPORTANT: Get the "AD" release from each Git submodule below):
 
 ACE Direct
- 1. This is the main component of the ACE Connect Lite system. See the aceconnectlite folder for installation instructions.
+ 1. This is the main component of the ACE Direct system. See the aceconnectlite folder for installation instructions.
 
 ACR-CDR
  1. ACR-CDR is an independent application that is part of the ACL system. See the acr-cdr folder for installation instructions.
