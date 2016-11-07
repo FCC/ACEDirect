@@ -16,3 +16,6 @@
 [submodule "acedirect"]
 	path = acedirect
 	url = git@github.com:mitrefccace/acedirect.git
+[submodule "esb"]
+	path = esb
+	url = git@github.com:mitrefccace/esb.git
