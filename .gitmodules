@@ -22,3 +22,6 @@
 [submodule "aserver"]
 	path = aserver
 	url = git@github.com:mitrefccace/aserver.git
+[submodule "userver"]
+	path = userver
+	url = git@github.com:mitrefccace/userver.git
