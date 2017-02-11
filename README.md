@@ -1,30 +1,50 @@
-ACE Direct Public Release
+![](images/adsmall.png)
 
-## Documentation:
- 1. Please see the docs folder for documentation on the project overview, installation, and configuration.
+# ACE Direct
 
-## Components (IMPORTANT: Get the "AD" release from each Git submodule below):
+Accessible Communications for Everyone (ACE) Direct is a Direct Video Calling (DVC) platform that enables direct calling from deaf and hard-of-hearing individuals to an American Sign Language (ASL)-trained agent within an organization's call center. The agent handles the call using a video-capable phone with real-time video connection. To demonstrate the capabilities of DVC, the FCC and CAMH have further advanced the original auto-routing POC into a call center platform for two to ten customer service representatives.
 
-ACE Direct
- 1. This is the main component of the ACE Direct system. See the aceconnectlite folder for installation instructions.
+## Release v1.1
 
-ACR-CDR
- 1. ACR-CDR is an independent application that is part of the ACL system. See the acr-cdr folder for installation instructions.
+The latest release of ACE Direct is **Release v1.1**. See the RELEASENOTES.md file for the changes included in this release.
+
+## Getting the Latest Software
+
+The latest Release v1.1 includes several Git submodules in this repo. Please clone the *Master* branches and checkout the *v1.1* tag of each of these Git submodules:
+
+* acedirect
+* acr-cdr
+* aserver
+* userver
+* managementportal
+* esb
+* asterisk
+
+## Documentation
+Please see the *docs* folder for complete documentation on the project overview, installation, and configuration. See the README.md files in the Git submodules for more information.
+
+## Submodule Summary
+
+### ACE Direct
+ACE Direct is the main application of the ACE Direct system.
+
+### ACR-CDR
+ACR-CDR is a standalone application that provides call detail information.
  
-Management Portal
- 1. The Management Portal is an independent application that is part of the ACL system. See the managementportal folder for installation instructions.
+### Management Portal
+The Management Portal is a standalone application that provides management information.
  
-Asterisk
- 1. The Asterisk application is an indpendent component of the ACL system. See the asterisk folder for more information.
+### Asterisk
+The Asterisk application is a standalone component that is the Virtual PBX.
  
-Agent Portal
- 1. The Agent Portal is a website that maintains agent information. See the acrdemo-agent folder for more information.
+### ASERVER
+ASERVER is a standalone application that provides agent information to ACE Direct. The interface is a RESTful API.
  
-Provider Portal
- 1. The Provider Portal is a website that maintains VRS information. See the acrdemo-provider folder for more information.
+### USERVER
+USERVER is a standalone application that provides user information to ACE Direct. The interface is a RESTful API. 
  
- 
- 
+### ESB
+ESB is a standalone application is an enterprise service broker for ACE Direct.
  
  
 

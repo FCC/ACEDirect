@@ -1,8 +1,18 @@
-ACE Direct Project
+# ACE Direct Project
 
-02.10.2017 - Release v1.1 of ACE Direct. Please get v1.1 tagged versions of acedirect, acr-cdr, aserver, userver, managementportal, esb, and asterisk submodule.
+## 02.10.2017 - Release v1.1 of ACE Direct
 
-This ACE Direct public release software was demonstrated to the FCC on 11/02/2016. Versions were copied from the MITRE Stash repositories with tags as described below:
+* Increased character limit in WebRTC RTT implementation
+* Call transfer functionality from one agent to another
+* A new Agent Status window
+* Acceptance of inbound PSTN calls
+* The use of a secure protocol (HTTP) during web transmissions
+* Encoding of userids and passwords
+* Enhanced documentation in the README files and in the source code
+* Segmentation of application servers to increase system scalability 
+* Additional software changes to improveme scalability and reliability
 
+## 11.02.2016 - Release v1.0 of ACE Direct (initial public release)
 
+* This ACE Direct public release software was demonstrated to the FCC.
 
