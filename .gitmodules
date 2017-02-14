@@ -25,3 +25,6 @@
 [submodule "userver"]
 	path = userver
 	url = git@github.com:mitrefccace/userver.git
+[submodule "hashconfig"]
+	path = hashconfig
+	url = git@github.com:mitrefccace/hashconfig.git
