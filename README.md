@@ -19,7 +19,7 @@ The latest Release v1.1 includes several Git submodules in this repo. Please clo
 * managementportal
 * esb
 * asterisk
-* hashconfig (latest version)
+* hashconfig
 
 ## Documentation
 Please see the *docs* folder for complete documentation on the project overview, installation, and configuration. See the README.md files in the Git submodules for more information.
