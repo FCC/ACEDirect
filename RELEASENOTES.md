@@ -10,7 +10,7 @@
 * Encoding of userids and passwords
 * Enhanced documentation in the README files and in the source code
 * Segmentation of application servers to increase system scalability 
-* Additional software changes to improveme scalability and reliability
+* Additional software changes to improve scalability and reliability
 
 ## 11.02.2016 - Release v1.0 of ACE Direct (initial public release)
 
