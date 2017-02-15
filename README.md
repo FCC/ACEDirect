@@ -19,6 +19,7 @@ The latest Release v1.1 includes several Git submodules in this repo. Please clo
 * managementportal
 * esb
 * asterisk
+* hashconfig (latest version)
 
 ## Documentation
 Please see the *docs* folder for complete documentation on the project overview, installation, and configuration. See the README.md files in the Git submodules for more information.
@@ -46,7 +47,6 @@ USERVER is a standalone application that provides user information to ACE Direct
 ### ESB
 ESB is a standalone application is an enterprise service broker for ACE Direct.
  
+### HashConfig
+HashConfig is an open-source, standalone Node.js application that automates the process of editing a JavaScript Object Notation (JSON) file. This tool facilitates the editing of the encrypted configuration files.
  
-
-
-
