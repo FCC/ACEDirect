@@ -25,3 +25,6 @@
 [submodule "hashconfig"]
 	path = hashconfig
 	url = git@github.com:mitrefccace/hashconfig.git
+[submodule "esb"]
+	path = esb
+	url = git@github.com:mitrefccace/esb.git
