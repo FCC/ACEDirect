@@ -6,7 +6,7 @@
 * Call transfer functionality from one agent to another
 * A new Agent Status window
 * Acceptance of inbound PSTN calls
-* The use of a secure protocol (HTTP) during web transmissions
+* The use of a secure protocol (HTTPS) during web transmissions
 * Encoding of userids and passwords
 * Enhanced documentation in the README files and in the source code
 * Segmentation of application servers to increase system scalability 
