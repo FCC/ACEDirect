@@ -4,9 +4,6 @@
 [submodule "acrdemo-agent"]
 	path = acrdemo-agent
 	url = git@github.com:mitrefccace/acrdemo-agent.git
-[submodule "acrdemo-provider"]
-	path = acrdemo-provider
-	url = git@github.com:mitrefccace/acrdemo-provider.git
 [submodule "asterisk"]
 	path = asterisk
 	url = git@github.com:mitrefccace/asterisk.git
