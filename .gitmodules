@@ -1,9 +1,6 @@
 [submodule "acr-cdr"]
 	path = acr-cdr
 	url = git@github.com:mitrefccace/acr-cdr.git
-[submodule "acrdemo-agent"]
-	path = acrdemo-agent
-	url = git@github.com:mitrefccace/acrdemo-agent.git
 [submodule "asterisk"]
 	path = asterisk
 	url = git@github.com:mitrefccace/asterisk.git
