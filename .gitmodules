@@ -22,3 +22,6 @@
 [submodule "esb"]
 	path = esb
 	url = git@github.com:mitrefccace/esb.git
+[submodule "fendesk"]
+	path = fendesk
+	url = git@github.com:mitrefccace/fendesk.git
