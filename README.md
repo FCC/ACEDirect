@@ -48,7 +48,7 @@ This will start the installation menu. Install all servers (Options 1-7). For ea
 
 * Specify the location of the customized *_TEMPLATE configuration file
 * Enter 'y' to edit the configuration file
-* Modify or accept the default value for each parameter and press <Enter>
+* Modify or accept the default value for each parameter and press `<Enter>`
 
 After installing all servers, selection option *0. Finish installation process*. This will quit the menu and start up all servers. 
 
