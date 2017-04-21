@@ -21,9 +21,36 @@ The latest Release v1.1 includes several Git submodules in this repo. Please clo
 * asterisk
 * hashconfig
 * fendesk
+* autoinstall
 
 ## Documentation
 Please see the *docs* folder for complete documentation on the project overview, installation, and configuration. See the README.md files in the Git submodules for more information.
+
+## Single Server Installation (example)
+
+### Prerequisites
+
+1. Install Node.js
+1. Install MySQL
+1. Install Asterisk server
+1. Install STUN server
+
+### Installation Instructions
+
+```
+[centos@yourmachine ~]$  cd /home/centos
+[centos@yourmachine ~]$  git clone git@github.com:mitrefccace/autoinstall.git
+[centos@yourmachine ~]$  cp autoinstall/installer.py .
+[centos@yourmachine ~]$  python ./installer.py 
+```
+
+This will start the installation menu. Install all servers (Options 1-7). For each server:
+
+* Specify the location of the customized *_TEMPLATE configuration file
+* Enter 'y' to edit the configuration file
+* Modify or accept the default value for each parameter and press <Enter>
+
+After installing all servers, selection option *0. Finish installation process*. This will quit the menu and start up all servers. 
 
 ## Submodule Summary
 
@@ -53,3 +80,6 @@ HashConfig is an open-source, standalone Node.js application that automates the 
 
 ### Fendesk
 Fendesk is a simple ticketing system that creates and maintains tickets as local JSON files. It emulates real-world ticketing systems. 
+
+### Autoinstall
+This repo contains an installation script that automates ACE Direct software installation.
