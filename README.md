@@ -20,6 +20,7 @@ The latest Release v1.1 includes several Git submodules in this repo. Please clo
 * esb
 * asterisk
 * hashconfig
+* fendesk
 
 ## Documentation
 Please see the *docs* folder for complete documentation on the project overview, installation, and configuration. See the README.md files in the Git submodules for more information.
@@ -49,4 +50,6 @@ ESB is a standalone application is an enterprise service broker for ACE Direct.
  
 ### HashConfig
 HashConfig is an open-source, standalone Node.js application that automates the process of editing a JavaScript Object Notation (JSON) file. This tool facilitates the editing of the encrypted configuration files.
- 
+
+### Fendesk
+Fendesk is a simple ticketing system that creates and maintains tickets as local JSON files. It emulates real-world ticketing systems. 
