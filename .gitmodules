@@ -25,3 +25,6 @@
 [submodule "fendesk"]
 	path = fendesk
 	url = git@github.com:mitrefccace/fendesk.git
+[submodule "autoinstall"]
+	path = autoinstall
+	url = git@github.com:mitrefccace/autoinstall.git
