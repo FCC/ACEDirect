@@ -1,85 +1,30 @@
 ![](images/adsmall.png)
 
-# ACE Direct v1.1
+# ACE Direct
 
 Accessible Communications for Everyone (ACE) Direct is a Direct Video Calling (DVC) platform that enables direct calling from deaf and hard-of-hearing individuals to an American Sign Language (ASL)-trained agent within an organization's call center. The agent handles the call using a video-capable phone with real-time video connection. To demonstrate the capabilities of DVC, the FCC and CAMH have further advanced the original auto-routing POC into a call center platform for two to ten customer service representatives.
 
-## Release v1.1
+## Release v2.x
 
-The latest release of ACE Direct is **Release v1.1**. See the RELEASENOTES.md file for the changes included in this release.
+The latest release of ACE Direct is **Release v2.x**. See the RELEASENOTES.md file for the changes included in this release. Four new repositories were added to this release: *busylightapi*, *iam*, *nginx*, and *virtualagent*.
 
 ## Getting the Latest Software
 
-The latest Release v1.1 includes several Git submodules in this repo. Please clone the *Master* branches and checkout the *v1.1* tag of each of these Git submodules:
+The latest release includes several Git **submodules** in this repo. Please pull the Git submodules linked here, for example:
 
-* acedirect
-* acr-cdr
-* aserver
-* userver
-* managementportal
-* esb
-* asterisk
-* hashconfig
-* fendesk
-* autoinstall
+```sh
+user@yourmachine:~$  git clone git@github.com:mitrefccace/acedirect-public.git  # get top repo
+user@yourmachine:~$  cd acedirect-public
+user@yourmachine:~$  git submodule init  # initialize local config file
+user@yourmachine:~$  git submodule update # get individual repos
+```
+
+Next, check out the **v2.x** tag (i.e., highest *v2.x* number) in each of the submodule repos. This will ensure that all submodules are in sync.
 
 ## Documentation
-Please see the *docs* folder for complete documentation on the project overview, installation, and configuration. See the README.md files in the Git submodules for more information.
+Please see the *docs* folder for official documentation on the project overview, installation, and configuration. See the README.md files in the Git submodules for installation and configuration details of those individual repos.
 
-## Single Server Installation (example)
+## Installation Script
 
-### Prerequisites
+The *installer.py* installation script in the *autoinstall* repo is an overall installation script that installs most of the components of the system. The submodules have further information on direct installation and configuration.
 
-1. Install Node.js
-1. Install MySQL
-1. Install Asterisk server
-1. Install STUN server
-
-### Installation Instructions
-
-```
-[centos@yourmachine ~]$  cd /home/centos
-[centos@yourmachine ~]$  git clone git@github.com:mitrefccace/autoinstall.git
-[centos@yourmachine ~]$  cp autoinstall/installer.py .
-[centos@yourmachine ~]$  python ./installer.py 
-```
-
-This will start the installation menu. Install all servers (Options 1-7). For each server:
-
-* Specify the location of the customized *_TEMPLATE configuration file
-* Enter 'y' to edit the configuration file
-* Modify or accept the default value for each parameter and press `<Enter>`
-
-After installing all servers, selection option *0. Finish installation process*. This will quit the menu and start up all servers. 
-
-## Submodule Summary
-
-### ACE Direct
-ACE Direct is the main application of the ACE Direct system.
-
-### ACR-CDR
-ACR-CDR is a standalone application that provides call detail information.
- 
-### Management Portal
-The Management Portal is a standalone application that provides management information.
- 
-### Asterisk
-The Asterisk application is a standalone component that is the Virtual PBX.
- 
-### ASERVER
-ASERVER is a standalone application that provides agent information to ACE Direct. The interface is a RESTful API.
- 
-### USERVER
-USERVER is a standalone application that provides user information to ACE Direct. The interface is a RESTful API. 
- 
-### ESB
-ESB is a standalone application is an enterprise service broker for ACE Direct.
- 
-### HashConfig
-HashConfig is an open-source, standalone Node.js application that automates the process of editing a JavaScript Object Notation (JSON) file. This tool facilitates the editing of the encrypted configuration files.
-
-### Fendesk
-Fendesk is a simple ticketing system that creates and maintains tickets as local JSON files. It emulates real-world ticketing systems. 
-
-### Autoinstall
-This repo contains an installation script that automates ACE Direct software installation.
