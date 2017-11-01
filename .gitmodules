@@ -28,3 +28,15 @@
 [submodule "autoinstall"]
 	path = autoinstall
 	url = git@github.com:mitrefccace/autoinstall.git
+[submodule "busylightapi"]
+	path = busylightapi
+	url = git@github.com:mitrefccace/busylightapi.git
+[submodule "iam"]
+	path = iam
+	url = git@github.com:mitrefccace/iam.git
+[submodule "nginx"]
+	path = nginx
+	url = git@github.com:mitrefccace/nginx.git
+[submodule "virtualagent"]
+	path = virtualagent
+	url = git@github.com:mitrefccace/virtualagent.git
