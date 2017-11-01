@@ -1,1 +1,3 @@
-Documentation for ACE Direct.
+![](../images/adsmall.png)
+
+This folder includes official documentation for the ACE Direct software.
