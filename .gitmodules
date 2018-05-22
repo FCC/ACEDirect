@@ -40,3 +40,6 @@
 [submodule "virtualagent"]
 	path = virtualagent
 	url = git@github.com:mitrefccace/virtualagent.git
+[submodule "dat"]
+	path = dat
+	url = git@github.com:mitrefccace/dat.git
