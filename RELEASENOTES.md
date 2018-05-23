@@ -2,6 +2,29 @@
 
 # ACE Direct
 
+## Release Tag: v2.1 (mm/dd/yyyy)
+
+* Global configuration file to simplify the installation process
+* Updated installation procedure for global configuration and other enhancements
+* FCC disclaimer to ACE Direct entry web pages
+* Present the agent's name to consumer during a call
+* Re-style the back button on the Consumer portal
+* New dialog to inform consumers that they are in queue
+* Clear/enable/disable chat using context (both agent and consumers)
+* Agent option to Return to Away / Return to Ready after a call
+* Videomail retention logic and screens
+* Resizeable/movable/profileable agent forms
+* ACE Direct skinny modes for both the agent and consumer screens
+* Implement Zendesk pop ticket (CDC software integration)
+* After hours screens, database, and processing
+* Prototype of the FCC entry pages in ACE Direct (for demo purposes)
+* Management Portal UI enhancements - including the agent PIE chart, etc.
+* ACE Direct SQL script to create the an initial database with sample data
+* Outbound Calling from the agent portal
+* Consolidated database for both ACE Direct and Asterisk
+* Implement ITRS lookup for VRS numbers as a configurable option
+* Redesign ACE Direct/NGINX/OpenAM routing
+
 ## Release Tag: v2.0 (11/01/2017)
 
 * Identity and Access Management implementation
@@ -33,7 +56,7 @@
 * The use of a secure protocol (HTTPS) during web transmissions
 * Encoding of userids and passwords
 * Enhanced documentation in the README files and in the source code
-* Segmentation of application servers to increase system scalability 
+* Segmentation of application servers to increase system scalability
 * Additional software changes to improve scalability and reliability
 
 ## Release Tag: v1.0 (11.02.2016)
@@ -59,7 +82,7 @@ Release v1.0 of ACE Direct (initial public release)
 ## Release Tag: 20161031qa
 
 * logo changes
-* Cosmetic 
+* Cosmetic
 * new AD logo (image)
 * new AD logo on login page
 * new AD logo on complaint form
