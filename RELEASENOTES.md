@@ -2,7 +2,7 @@
 
 # ACE Direct
 
-## Release Tag: v2.1 (mm/dd/yyyy)
+## Release Tag: v2.1
 
 * Global configuration file to simplify the installation process
 * Updated installation procedure for global configuration and other enhancements
