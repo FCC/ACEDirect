@@ -2,6 +2,8 @@
 
 # ACE Direct Installation/Configuration Checklist
 
+* Acquire registered domain and subdomain names.
+* Add fully-qualified domain names (FQDNs) to the provider peering lists; this request may take up to two weeks to fulfill.
 * Create the AWS instances for the node, OpenAM, stun, and Asterisk servers. Do not use special characters for the server names.
   * Domain names *must* be two-level domain names; this is a requirement by OpenAM
   * _nodeace.domain.com_, _openamace.domain.com_, _stunace.domain.com_, and _sipace.domain.computer_
@@ -18,7 +20,8 @@
   ::1 localhost localhost.localdomain localhost6 localhost6.localdomain6
   <openamace private IP> openamace openamace.domain.com
   ```
-* Create website certificates. You should consult your IT department to generate these certificates. Or, just create self-signed certs for testing. Here is how to configure the certs:
+
+* Create website certificates. We need the registered, active domain name first. You should consult your IT department to generate these certificates. Or, just create self-signed certs for testing. Here is how to configure the certs:
   * The certificates should be *wildcard* certs to have flexibility with domain names.
   * The certificates must have `644` permissions.
   * Name the certificates _cert.pem_ and _key.pem_.
