@@ -2,6 +2,20 @@
 
 # ACE Direct
 
+## Release Tag: v3.0
+
+* Container technology - ACE Direct may now be deployed in Docker containers
+* Management Portal Agent Provisioning - a new interface to conveniently maintain agents in both OpenAM and ACE Direct
+* Data Logger - a new utility to capture and save log files, trace information, and testing details automatically. This information helps with troubleshooting interoperability and call quality issues
+* NGINX Custom Error Page - a new ACE Direct-flavored NGINX custom page, when servers are down
+* ASL Video On Hold - allows the call center to display/advertise a custom message to callers when the system is offline
+* Customizable ACE Direct URLs - allows customizable URLs for the ACE Direct portals
+* Modifications for the new Chrome versions
+* Video privacy screens for the agent and consumer portals
+* Addressed a GitHub security vulnerability alert (virtual agent)
+* Handle multiple NAPTR records and priority sorting
+* Improvements for aspect ratio, self-view, and button controls when agent/consumer videos are full screen
+
 ## Release Tag: v2.1
 
 * Global configuration file to simplify the installation process
