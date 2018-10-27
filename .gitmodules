@@ -43,3 +43,6 @@
 [submodule "dat"]
 	path = dat
 	url = git@github.com:mitrefccace/dat.git
+[submodule "data-logger"]
+	path = data-logger
+	url = git@github.com:mitrefccace/data-logger.git
