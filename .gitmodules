@@ -1,48 +1,48 @@
 [submodule "acr-cdr"]
 	path = acr-cdr
-	url = git@github.com:mitrefccace/acr-cdr.git
+	url = https://github.com/mitrefccace/acr-cdr.git
 [submodule "asterisk"]
 	path = asterisk
-	url = git@github.com:mitrefccace/asterisk.git
+	url = https://github.com/mitrefccace/asterisk.git
 [submodule "managementportal"]
 	path = managementportal
-	url = git@github.com:mitrefccace/managementportal.git
+	url = https://github.com/mitrefccace/managementportal.git
 [submodule "acedirect"]
 	path = acedirect
-	url = git@github.com:mitrefccace/acedirect.git
+	url = https://github.com/mitrefccace/acedirect.git
 [submodule "aserver"]
 	path = aserver
-	url = git@github.com:mitrefccace/aserver.git
+	url = https://github.com/mitrefccace/aserver.git
 [submodule "userver"]
 	path = userver
-	url = git@github.com:mitrefccace/userver.git
+	url = https://github.com/mitrefccace/userver.git
 [submodule "hashconfig"]
 	path = hashconfig
-	url = git@github.com:mitrefccace/hashconfig.git
+	url = https://github.com/mitrefccace/hashconfig.git
 [submodule "esb"]
 	path = esb
-	url = git@github.com:mitrefccace/esb.git
+	url = https://github.com/mitrefccace/esb.git
 [submodule "fendesk"]
 	path = fendesk
-	url = git@github.com:mitrefccace/fendesk.git
+	url = https://github.com/mitrefccace/fendesk.git
 [submodule "autoinstall"]
 	path = autoinstall
-	url = git@github.com:mitrefccace/autoinstall.git
+	url = https://github.com/mitrefccace/autoinstall.git
 [submodule "busylightapi"]
 	path = busylightapi
-	url = git@github.com:mitrefccace/busylightapi.git
+	url = https://github.com/mitrefccace/busylightapi.git
 [submodule "iam"]
 	path = iam
-	url = git@github.com:mitrefccace/iam.git
+	url = https://github.com/mitrefccace/iam.git
 [submodule "nginx"]
 	path = nginx
-	url = git@github.com:mitrefccace/nginx.git
+	url = https://github.com/mitrefccace/nginx.git
 [submodule "virtualagent"]
 	path = virtualagent
-	url = git@github.com:mitrefccace/virtualagent.git
+	url = https://github.com/mitrefccace/virtualagent.git
 [submodule "dat"]
 	path = dat
-	url = git@github.com:mitrefccace/dat.git
+	url = https://github.com/mitrefccace/dat.git
 [submodule "data-logger"]
 	path = data-logger
-	url = git@github.com:mitrefccace/data-logger.git
+	url = https://github.com/mitrefccace/data-logger.git
