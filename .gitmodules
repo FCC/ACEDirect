@@ -46,3 +46,6 @@
 [submodule "data-logger"]
 	path = data-logger
 	url = https://github.com/mitrefccace/data-logger.git
+[submodule "kamailio"]
+	path = kamailio
+	url = git@github.com:mitrefccace/kamailio.git
