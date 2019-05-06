@@ -2,6 +2,10 @@
 
 # ACE Direct
 
+## Release Tag: v3.1
+
+* SIP Proxy server
+
 ## Release Tag: v3.0
 
 * Container technology - ACE Direct may now be deployed in Docker containers

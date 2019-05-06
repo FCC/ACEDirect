@@ -4,9 +4,9 @@
 
 Accessible Communications for Everyone (ACE) Direct is a Direct Video Calling (DVC) platform that enables direct calling from deaf and hard-of-hearing individuals to an American Sign Language (ASL)-trained agent within an organization's call center. The agent handles the call using a video-capable phone with real-time video connection. To demonstrate the capabilities of DVC, the FCC and CAMH have further advanced the original auto-routing POC into a call center platform for two to ten customer service representatives.
 
-## Release v2.1
+## Release v3.1
 
-The latest release of ACE Direct is **Release v2.1**. See the RELEASENOTES.md file for the changes included in this release.
+The latest release of ACE Direct is **Release v3.1**. See the [RELEASENOTES.md](RELEASENOTES.md) file for the changes included in this release.
 
 ## Clean Installation
 
