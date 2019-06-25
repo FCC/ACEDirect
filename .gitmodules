@@ -49,3 +49,9 @@
 [submodule "kamailio"]
 	path = kamailio
 	url = git@github.com:mitrefccace/kamailio.git
+[submodule "acequill-service"]
+	path = acequill-service
+	url = git@github.com:mitrefccace/acequill-service.git
+[submodule "acedirect-kurento"]
+	path = acedirect-kurento
+	url = git@github.com:mitrefccace/acedirect-kurento.git
