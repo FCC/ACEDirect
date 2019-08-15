@@ -49,9 +49,6 @@
 [submodule "acequill-service"]
 	path = acequill-service
 	url = git@github.com:mitrefccace/acequill-service.git
-[submodule "acedirect-kurento"]
-	path = acedirect-kurento
-	url = git@github.com:mitrefccace/acedirect-kurento.git
 [submodule "kurento-asterisk-servlet"]
 	path = kurento-asterisk-servlet
 	url = git@github.com:mitrefccace/kurento-asterisk-servlet.git
