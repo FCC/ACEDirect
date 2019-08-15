@@ -10,7 +10,7 @@ The latest release of ACE Direct is **Release v3.1**. See the [RELEASENOTES.md](
 
 ## Clean Installation
 
-To install ACE Direct from scratch, see the CHECKLISTS.md file. This file describes the installation and configuration process for the ACE Direct system.
+To install ACE Direct from scratch, see the [CHECKLISTS.md](CHECKLISTS.md) file. This file describes the installation and configuration process for the ACE Direct system.
 
 ## Getting the Latest Software
 
@@ -23,7 +23,8 @@ user@yourmachine:~$  git submodule init  # initialize local config file
 user@yourmachine:~$  git submodule update # get individual repos
 ```
 
-Next, check out the **v2.1** tag (i.e., highest *v2.x* number) in each of the submodule repos. This will ensure that all submodules are in sync.
+Next, check out the **v3.2** tag (or the most current tag) of each of the submodule repos. Some repos may not have been updated for the most current release. This will ensure that all submodules are in sync.
 
 ## Documentation
+
 Please see the *docs* folder for official documentation on the project overview, installation, and configuration. See the README.md files in the Git submodules for installation and configuration details of those individual repos.

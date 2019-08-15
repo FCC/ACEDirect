@@ -2,6 +2,17 @@
 
 # ACE Direct
 
+## Release Tag: v3.2
+
+* Container technology for Asterisk and OpenAM
+* ACE Quill captioning technology in agent and consumer portals
+* Captoning demo in ACE Direct
+* Better video aspect ration in agent and consumer portals
+* Improved UI layout, button sizing/placement in agent, consumer, and management portals
+* Improved OpenAM manual installation instructions
+* Upgrade Node.js version
+* Improved overall manual installation procedures
+
 ## Release Tag: v3.1
 
 * SIP Proxy server
