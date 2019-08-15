@@ -2,7 +2,7 @@
 
 # ACE Direct
 
-## Release Tag: v3.2
+## Release Tag: v3.2.0
 
 * Container technology for Asterisk and OpenAM
 * ACE Quill captioning technology in agent and consumer portals
