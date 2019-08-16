@@ -148,7 +148,7 @@ $ python ./installer.py -s 'ssh://github.com/mitrefccace' -b 'v2.1' -u '/home/ac
 The _openamace_ server is the _identity and access management_ server, implemented with OpenAM. To install and configure _openamace_:
 
 * See the `README.md` file in the `iam` repo for detailed installation and configuration instructions.
-* Install Java v1.8. or later. Please be mindful of the new Java [licensing model](https://www.oracle.com/technetwork/java/javase/overview/oracle-jdk-faqs.html). According to Oracle, "Java SE 8 remains free of charge for general purpose desktop and server use" [link](https://www.oracle.com/technetwork/java/javase/overview/faqs-jsp-136696.html). You may optionally install _OpenJDK_ instead. See the 'iam' repo for details.
+* Install Java v1.8. or later. Please be mindful of the new Java [licensing model](https://www.oracle.com/technetwork/java/javase/overview/oracle-jdk-faqs.html). According to Oracle, "Java SE 8 remains free of charge for general purpose desktop and server use" [link](https://www.oracle.com/technetwork/java/javase/overview/faqs-jsp-136696.html). You may optionally install _OpenJDK_ instead. See the `iam` repo for details.
 
 ### Database
 
