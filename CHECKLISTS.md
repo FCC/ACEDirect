@@ -31,7 +31,65 @@ This section describes the important prerequisites to complete _before_ proceedi
 
 ## Installation and configuration
 
-After completing the prerequisites above, continue to ACE Direct installation and configuration. The `autoinstall` repo automates much of the installation and configuration process. The following paragraphs describe a manual installation and configuration of ACE Direct.
+After completing the prerequisites above, continue to ACE Direct installation and configuration. The `autoinstall` repo automates much of the installation and configuration process. 
+
+### Sample Installation
+
+Here is a sample installation example for the `v3.2.0` release:
+
+```
+$  # installing ACE Direct...
+$  # It is recommended to install Redis, NGINX, MongoDB, and the Node servers on one EC2 instance
+$  cd /home/ec2-user  # your installation folder
+$  git clone https://github.com/mitrefccace/autoinstall.git
+$  python autoinstall/installer.py -s 'https://github.com/mitrefccace' -b 'v3.2.0' -u '/home/ec2-user'
+Do you want to install Redis? (y/n): y
+...
+Do you want to install Nginx? (y/n): y
+...
+Do you want to install MongoDB? (y/n):y
+...
+Please select one of the following options for installation. When finished, choose option 0 for configuration:
+1. Quick installation & configuration (all servers)
+2. Install Agent and Consumer Portals
+3. Install ACR-CDR
+4. Install Management Portal
+5. Install Aserver
+6. Install Userver
+7. Install Fendesk
+8. Install Virtual Agent
+9. Disable SE Linux
+10. Exit script without configuration
+
+0. Finish installation, begin configuration
+ >>  1
+...
+Virtualagent installation complete.
+Disabling SE Linux...
+SE Linux has been disabled.
+Beginning configuration...
+Do you want to go through the configuration process? (y/n):y
+Enter the full path to a configuration template file, or press enter to use the
+default template:/home/ec2-user/dat/config.json_TEMPLATE
+Do you want the configuration file config.json to be base64 encoded? (y/n):n
+prompt: common,cleartext:  (true) 
+prompt: common,version:  (3.2) 
+prompt: common,year:  (2019) 
+...
+Writing process.json and starting servers of the installed components...
+...
+$  pm2 update # if needed
+$
+$  # done, services are up
+$  # here's how to manager Node servers with pm2...
+$  pm2 stop all  # stop all Node servers
+$  pm2 start all  # start all Node servers
+$  pm2 status # check status of all Node servers
+$  pm2 delete all  # delete Node server processes
+$  pm2 start process.json  # add all Node server processes and start them up
+```
+
+The following paragraphs describe a manual installation and configuration of ACE Direct.
 
 ### _nodeace_
 
