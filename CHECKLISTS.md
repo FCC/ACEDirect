@@ -10,6 +10,7 @@ This checklist describes the installation and configuration procedures for the A
 
 This section describes the important prerequisites to complete _before_ proceeding with an ACE Direct installation.
 
+* This document assumes the installation account to be `/home/acedirect`.  Note that this is the same name as the `/home/acedirect/acedirect` Node servers repo.
 * *Acquire domain and subdomain names.* Work with a domain name registrar to register the desired domain and subdomain names. It may take up to *three days* to activate the domain after registration. Domain names _must_ be three-level domain names; this is a requirement by OpenAM. Do not use special characters in the domain names. The suggested domain names for ACE Direct are: _nodeace.domain.com_, _openamace.domain.com_, _stunace.domain.com_, and _sipace.domain.com_. Once domain names are available, proceed with the remaining prerequisites below.
 * *Create _A_ records.* Connect your IP addresses to host names with A records ([link](https://www.godaddy.com/help/add-an-a-record-19238)).
 * *Update provider peering lists.* Make requests to the phone providers to update their peering lists. It may take up to *two weeks* to fulfill this request.
@@ -35,14 +36,14 @@ After completing the prerequisites above, continue to ACE Direct installation an
 
 ### Sample Installation
 
-Here is a sample installation example for the `v3.2.0` release:
+Here is a sample installation example for the `v3.2.0` release on the `nodeace` server:
 
 ```
 $  # installing ACE Direct...
-$  # It is recommended to install Redis, NGINX, MongoDB, and the Node servers on one EC2 instance
-$  cd /home/ec2-user  # your installation folder
+$  # It is recommended to install Redis, NGINX, MongoDB, and the Node servers on the nodeace server
+$  cd /home/acedirect  # your installation folder
 $  git clone https://github.com/mitrefccace/autoinstall.git
-$  python autoinstall/installer.py -s 'https://github.com/mitrefccace' -b 'v3.2.0' -u '/home/ec2-user'
+$  python autoinstall/installer.py -s 'https://github.com/mitrefccace' -b 'v3.2.0' -u '/home/acedirect'
 Do you want to install Redis? (y/n): y
 ...
 Do you want to install Nginx? (y/n): y
@@ -99,12 +100,13 @@ The _nodeace_ server is the main application server for ACE Direct. Complete the
 * Install and configure NGINX. See the `README.md` file in the `nginx` repo for complete instructions. This repo provides a template for the `nginx.conf` file.
 * Install and configure Redis. See the [Redis Quick Start](https://redis.io/topics/quickstart) instructions.
 * Install and configure MongoDB. See the [MongoDB installation instructions](https://docs.mongodb.com/manual/administration/install-on-linux/).
-* Update the `/etc/hosts` file with the _openamace_ information. Here is a sample template:
+* Update the `/etc/hosts` file with the _openamace_ and _nodeace_ information. Here is a sample template:
 
   ```bash
   127.0.0.1 nodeace.domain.com localhost localhost.localdomain localhost4 localhost4.localdomain4
   ::1 localhost localhost.localdomain localhost6 localhost6.localdomain6
   <OPENAMACE PRIVATE IP> openamace openamace.domain.com
+  <NODEACE PRIVATE IP> nodeace nodeace.domain.com
   ```
 
 * Create the `/home/acedirect/scripts` folder and install the `itrslookup.sh` script. To manually install this script, copy it from the `asterisk` repo:
@@ -129,10 +131,9 @@ $
 * Install and configure the Node.js application servers. Run the automated installer script. Note that the automated installer script also downloads and installs third-party software mentioned above:
 
 ```bash
-$ cd /home/acedirect
-$ git clone https://github.com/mitrefccace/autoinstall.git # get this repo
-$ cp autoinstall/installer.py /home/acedirect/.
-$ python ./installer.py -s 'ssh://github.com/mitrefccace' -b 'v2.1' -u '/home/acedirect' #v2.1 is the most recent tag
+$  cd /home/acedirect  # your installation folder
+$  git clone https://github.com/mitrefccace/autoinstall.git
+$  python autoinstall/installer.py -s 'https://github.com/mitrefccace' -b 'v3.2.0' -u '/home/acedirect'
 ```
 
 * When prompted by the `installer.py` script:
@@ -185,11 +186,25 @@ Some ACE Direct components require database access. The database may be a separa
 
 # ACE Direct Troubleshooting Checklist
 
-  * Run ```pm2 status``` to see if the servers are automatically restarting. The restart count should _not_ be increasing.
+  * Manage Node services with `pm2`:
+
+    * Run `pm2 status` to check the status of all Node servers:
+
+      * Are all `status` fields `online` (OK)? If not, errors are present.
+      * Are any `restart` counts periodically increasing? If so, errors are present. 
+
+    * Stop all Node services: `pm2 stop all`
+    * Start all Node services: `pm2 start all`
+    * Restart all Node services: `pm2 restart all`
+    * Delete all Node services from `pm2` management: `pm2 delete all`
+    * Add and start all Node services to `pm2`: `pm2 start process.json`
+
   * Set the `common:debug_level` parameter in `/home/acedirect/dat/config.json` to *ALL* to receive all messages in the log files.
-  * Check the `logs` folder in each application folder for errors or warnings.
+  * Check the `logs` folder in each application folder for errors or warnings: `ls /home/acedirect/*/logs/*.log`
   * Verify that OpenAM, Redis, MongoDB, NGINX, and MySQL are running.
   * Does the BusyLight device respond? Try the self-test mode on the `lightserver.jar` UI.
   * Verify that the `/etc/hosts` file is configured correctly.
   * Verify that the `/etc/nginx/nginx.conf` file is configured correctly.
   * Verify that `/home/acedirect/dat/config.json` is configured correctly.
+  * Check if `asterisk` is publicly accessible: Visit `https://ASTERISK_FQDN/ws`. The page should display `Upgrade Required`.
+
