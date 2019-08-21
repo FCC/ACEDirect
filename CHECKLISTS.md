@@ -112,9 +112,15 @@ The _nodeace_ server is the main application server for ACE Direct. Complete the
 * Create the `/home/acedirect/scripts` folder and install the `itrslookup.sh` script. To manually install this script, copy it from the `asterisk` repo:
 
   ```bash
+  $ cd /home/acedirect
+  $ git clone https://github.com/mitrefccace/asterisk.git
+  $ cd asterisk
+  $   # git checkout to the latest/desired version
   $ cd /home/acedirect/scripts
-  $ git archive --remote=<Git top-level URL>/asterisk.git HEAD:scripts itrslookup.sh | tar -x
+  $ cp /home/acedirect/asterisk/scripts/itrslookup.sh .
   $ chmod 755 itrslookup.sh
+  $ cd /home/acedirect
+  $ rm -rf asterisk  # you don't need this repo on the node server
   ```
 
 * Test the `itrslookup.sh` script. For example, to test the 1112223333 VRS number, execute the command below and verify that the IP address and port are shown in the last line of output:
@@ -165,6 +171,7 @@ Some ACE Direct components require database access. The database may be a separa
 * Execute the `dat/acedirectdefault.sql` script from _nodeace_, with the admin user and password. Sample execution assuming the username _admin_ and a sample AWS RDS domain name:
 
   ```
+  $ sudo yum install mysql  # install a MySQL client if it's not there
   $ mysql -u admin -p -h some.aws.rds.amazonaws.com < acedirectdefault.sql
   ```
 
@@ -207,4 +214,7 @@ Some ACE Direct components require database access. The database may be a separa
   * Verify that the `/etc/nginx/nginx.conf` file is configured correctly.
   * Verify that `/home/acedirect/dat/config.json` is configured correctly.
   * Check if `asterisk` is publicly accessible: Visit `https://ASTERISK_FQDN/ws`. The page should display `Upgrade Required`.
+  * Management Portal installation - for any `lodash` errors, try installing the `lodash` library globally as root: `sudo npm install lodash -g`.
+  * NGINX cannot proxy to the NODE server - when using FQDNs for ACEDirect in `/etc/nginx/nginx.conf`, the FQDNs may force traffic through a proxy. To resolve this, map the FQDN to the private IP instead using a private host zone. *Or*, simply use private IP addresses in place of FQDN in `/etc/nginx/nginx.conf` for the ACEDirect, ManagementPortal, and ace (OpenAM) paths.
+  * Install MongoDB on RHEL - if the `installer.py` script fails to install MongoDB on RHEL, try `sudo yum install -y mongodb-org` .
 
