@@ -219,4 +219,5 @@ Some ACE Direct components require database access. The database may be a separa
   * Install MongoDB on RHEL - if the `installer.py` script fails to install MongoDB on RHEL, try `sudo yum install -y mongodb-org` .
   * No CDR records in the Management Portal - Make sure Asterisk is configured to have the MySQL database credentials, CDR database name, and CDR table name. Also make sure that the ODBC C library is installed on the Asterisk server; this library is normally installed by the automated installation script.
   * Consumer portal cannot reach Asterisk; ERR_CONNECTION_REFUSED - make sure Asterisk is configured to use valid certificates. 
+  * Cannot connect to portals - possibly remap the elastic IPs or try running `nslookup` on the NGINX FQDN and verify its FQDN and public IP.
 
