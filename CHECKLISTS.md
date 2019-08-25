@@ -1,6 +1,6 @@
-![](images/adsmall.png)
-
 # ACE Direct Installation/Configuration Checklist
+
+![ACE Direct](images/adsmall.png)
 
 This checklist describes the installation and configuration procedures for the ACE Direct software. It is the product of the lessons learned from several successful ACE Direct deployments. This document refers to other repos and online sources for some of the low-level installation instructions.
 
@@ -22,7 +22,7 @@ This section describes the important prerequisites to complete _before_ proceedi
   * If the cert is new, you may have to execute `restorecon` on it, for example: `restorecon -R -v cert.pem`
   * _For local testing only_, you may want to create self-signed certs: `openssl req -newkey rsa:2048 -nodes -keyout key.pem -x509 -days 365 -out cert.pem`
 * *Create the AWS instances for the ACE Direct servers:*
-  * Acquire and provision AWS servers for: _nodeace.domain.com_, _openamace.domain.com_, _stunace.domain.com_, and _sipace.domain.com_.
+  * Acquire and provision AWS servers for: _nodeace.domain.com_, _openamace.domain.com_, _stunace.domain.com_, and _sipace.domain.com_. If putting NGINX on its own server, acquire _nginxace.domain.com_ too.
   * On _nodeace_, modify SE Linux: ```sudo setsebool -P httpd_can_network_connect 1``` . You will need to do this after any reboot.
   * Set all servers to the _UTC timezone_.
   * The installation and configuration instructions assume CentOS or RHEL Linux servers. However, other Linux flavors _may_ work with little or no changes to these instructions.
@@ -38,9 +38,10 @@ After completing the prerequisites above, continue to ACE Direct installation an
 
 Here is a sample installation example for the `v3.2.0` release on the `nodeace` server:
 
-```
+```bash
 $  # installing ACE Direct...
 $  # It is recommended to install Redis, NGINX, MongoDB, and the Node servers on the nodeace server
+$  # however, using a separate serer for NGINX is fine
 $  cd /home/acedirect  # your installation folder
 $  git clone https://github.com/mitrefccace/autoinstall.git
 $  python autoinstall/installer.py -s 'https://github.com/mitrefccace' -b 'v3.2.0' -u '/home/acedirect'
@@ -112,15 +113,15 @@ The _nodeace_ server is the main application server for ACE Direct. Complete the
 * Create the `/home/acedirect/scripts` folder and install the `itrslookup.sh` script. To manually install this script, copy it from the `asterisk` repo:
 
   ```bash
-  $ cd /home/acedirect
-  $ git clone https://github.com/mitrefccace/asterisk.git
-  $ cd asterisk
-  $   # git checkout to the latest/desired version
-  $ cd /home/acedirect/scripts
-  $ cp /home/acedirect/asterisk/scripts/itrslookup.sh .
-  $ chmod 755 itrslookup.sh
-  $ cd /home/acedirect
-  $ rm -rf asterisk  # you don't need this repo on the node server
+  cd /home/acedirect
+  git clone https://github.com/mitrefccace/asterisk.git
+  cd asterisk
+  # git checkout to the latest/desired version
+  cd /home/acedirect/scripts
+  cp /home/acedirect/asterisk/scripts/itrslookup.sh .
+  chmod 755 itrslookup.sh
+  cd /home/acedirect
+  rm -rf asterisk  # you don't need this repo on the node server
   ```
 
 * Test the `itrslookup.sh` script. For example, to test the 1112223333 VRS number, execute the command below and verify that the IP address and port are shown in the last line of output:
@@ -137,9 +138,9 @@ $
 * Install and configure the Node.js application servers. Run the automated installer script. Note that the automated installer script also downloads and installs third-party software mentioned above:
 
 ```bash
-$  cd /home/acedirect  # your installation folder
-$  git clone https://github.com/mitrefccace/autoinstall.git
-$  python autoinstall/installer.py -s 'https://github.com/mitrefccace' -b 'v3.2.0' -u '/home/acedirect'
+cd /home/acedirect  # your installation folder
+git clone https://github.com/mitrefccace/autoinstall.git
+python autoinstall/installer.py -s 'https://github.com/mitrefccace' -b 'v3.2.0' -u '/home/acedirect'
 ```
 
 * When prompted by the `installer.py` script:
@@ -170,9 +171,9 @@ Some ACE Direct components require database access. The database may be a separa
   * Modify `_ASTERISK_PASSWORD_` with a desired password for the _asterisk_ database user.
 * Execute the `dat/acedirectdefault.sql` script from _nodeace_, with the admin user and password. Sample execution assuming the username _admin_ and a sample AWS RDS domain name:
 
-  ```
-  $ sudo yum install mysql  # install a MySQL client if it's not there
-  $ mysql -u admin -p -h some.aws.rds.amazonaws.com < acedirectdefault.sql
+  ```bash
+  sudo yum install mysql  # install a MySQL client if it's not there
+  mysql -u admin -p -h some.aws.rds.amazonaws.com < acedirectdefault.sql
   ```
 
 ### Additional installation instructions
@@ -183,41 +184,47 @@ Some ACE Direct components require database access. The database may be a separa
   * Connect the USB BusyLight to the agent computer.
   * Download the `busylightapi/exe/lightserver.jar` Java program from the `busylightapi` repo. Run it locally on the Agent's client computer.
 
-# ACE Direct Reboot Checklist
+## ACE Direct Reboot Checklist
 
+After rebooting servers, ACE Direct requires starting services in a specific order. Some services start automatically on reboot. Here is this required order:
+
+* `stunace` - STUN server
+* `sipace` - Asterisk server
+* `openamace` - Start OpenAM: `sudo service tomcat start`
+* `nodeace` or `nginxace` - NGINX server: `sudo service nginx start`
+* `nodeace` - Node servers
   * Set SE Linux variable: ```sudo setsebool -P httpd_can_network_connect 1```
   * Start NGINX: ```sudo service nginx start```
   * Start Redis: ```sudo service redis start```
   * Start MongoDB: ```sudo service mongod start```
-  * Restart Node: ```pm2 restart all```
+  * Restart ACE Direct servers: ```pm2 restart all```
 
-# ACE Direct Troubleshooting Checklist
+## ACE Direct Troubleshooting Checklist
 
-  * Manage Node services with `pm2`:
+* Manage Node services with `pm2`:
 
-    * Run `pm2 status` to check the status of all Node servers:
+  * Run `pm2 status` to check the status of all Node servers:
 
-      * Are all `status` fields `online` (OK)? If not, errors are present.
-      * Are any `restart` counts periodically increasing? If so, errors are present. 
+    * Are all `status` fields `online` (OK)? If not, errors are present.
+    * Are any `restart` counts periodically increasing? If so, errors are present. 
 
-    * Stop all Node services: `pm2 stop all`
-    * Start all Node services: `pm2 start all`
-    * Restart all Node services: `pm2 restart all`
-    * Delete all Node services from `pm2` management: `pm2 delete all`
-    * Add and start all Node services to `pm2`: `pm2 start process.json`
+  * Stop all Node services: `pm2 stop all`
+  * Start all Node services: `pm2 start all`
+  * Restart all Node services: `pm2 restart all`
+  * Delete all Node services from `pm2` management: `pm2 delete all`
+  * Add and start all Node services to `pm2`: `pm2 start process.json`
 
-  * Set the `common:debug_level` parameter in `/home/acedirect/dat/config.json` to *ALL* to receive all messages in the log files.
-  * Check the `logs` folder in each application folder for errors or warnings: `ls /home/acedirect/*/logs/*.log`
-  * Verify that OpenAM, Redis, MongoDB, NGINX, and MySQL are running.
-  * Does the BusyLight device respond? Try the self-test mode on the `lightserver.jar` UI.
-  * Verify that the `/etc/hosts` file is configured correctly.
-  * Verify that the `/etc/nginx/nginx.conf` file is configured correctly.
-  * Verify that `/home/acedirect/dat/config.json` is configured correctly.
-  * Check if `asterisk` is publicly accessible: Visit `https://ASTERISK_FQDN/ws`. The page should display `Upgrade Required`.
-  * Management Portal installation - for any `lodash` errors, try installing the `lodash` library globally as root: `sudo npm install lodash -g`.
-  * NGINX cannot proxy to the NODE server - when using FQDNs for ACEDirect in `/etc/nginx/nginx.conf`, the FQDNs may force traffic through a proxy. To resolve this, map the FQDN to the private IP instead using a private host zone. *Or*, simply use private IP addresses in place of FQDN in `/etc/nginx/nginx.conf` for the ACEDirect, ManagementPortal, and ace (OpenAM) paths.
-  * Install MongoDB on RHEL - if the `installer.py` script fails to install MongoDB on RHEL, try `sudo yum install -y mongodb-org` .
-  * No CDR records in the Management Portal - Make sure Asterisk is configured to have the MySQL database credentials, CDR database name, and CDR table name. Also make sure that the ODBC C library is installed on the Asterisk server; this library is normally installed by the automated installation script.
-  * Consumer portal cannot reach Asterisk; ERR_CONNECTION_REFUSED - make sure Asterisk is configured to use valid certificates. 
-  * Cannot connect to portals - possibly remap the elastic IPs or try running `nslookup` on the NGINX FQDN and verify its FQDN and public IP.
-
+* Set the `common:debug_level` parameter in `/home/acedirect/dat/config.json` to *ALL* to receive all messages in the log files.
+* Check the `logs` folder in each application folder for errors or warnings: `ls /home/acedirect/*/logs/*.log`
+* Verify that OpenAM, Redis, MongoDB, NGINX, and MySQL are running.
+* Does the BusyLight device respond? Try the self-test mode on the `lightserver.jar` UI.
+* Verify that the `/etc/hosts` file is configured correctly.
+* Verify that the `/etc/nginx/nginx.conf` file is configured correctly.
+* Verify that `/home/acedirect/dat/config.json` is configured correctly.
+* Check if `asterisk` is publicly accessible: Visit `https://ASTERISK_FQDN/ws`. The page should display `Upgrade Required`.
+* Management Portal installation - for any `lodash` errors, try installing the `lodash` library globally as root: `sudo npm install lodash -g`.
+* NGINX cannot proxy to the NODE server - when using FQDNs for ACEDirect in `/etc/nginx/nginx.conf`, the FQDNs may force traffic through a proxy. To resolve this, map the FQDN to the private IP instead using a private host zone. *Or*, simply use private IP addresses in place of FQDN in `/etc/nginx/nginx.conf` for the ACEDirect, ManagementPortal, and ace (OpenAM) paths.
+* Install MongoDB on RHEL - if the `installer.py` script fails to install MongoDB on RHEL, try `sudo yum install -y mongodb-org` .
+* No CDR records in the Management Portal - Make sure Asterisk is configured to have the MySQL database credentials, CDR database name, and CDR table name. Also make sure that the ODBC C library is installed on the Asterisk server; this library is normally installed by the automated installation script.
+* Consumer portal cannot reach Asterisk; ERR_CONNECTION_REFUSED - make sure Asterisk is configured to use valid certificates. 
+* Cannot connect to portals - possibly remap the elastic IPs or try running `nslookup` on the NGINX FQDN and verify its FQDN and public IP.
