@@ -72,7 +72,7 @@ SE Linux has been disabled.
 Beginning configuration...
 Do you want to go through the configuration process? (y/n):y
 Enter the full path to a configuration template file, or press enter to use the
-default template:/home/ec2-user/dat/config.json_TEMPLATE
+default template:/home/acedirect/dat/config.json_TEMPLATE
 Do you want the configuration file config.json to be base64 encoded? (y/n):n
 prompt: common,cleartext:  (true) 
 prompt: common,version:  (3.2) 
