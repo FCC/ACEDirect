@@ -2,7 +2,7 @@
 
 # ACE Direct
 
-## Release Tag: v3.2.0
+## Release Tag: v3.2
 
 * Container technology for Asterisk and OpenAM
 * ACE Quill captioning technology in agent and consumer portals
@@ -12,6 +12,14 @@
 * Improved OpenAM manual installation instructions
 * Upgrade Node.js version
 * Improved overall manual installation procedures
+
+### Release Tag: v3.2.1
+
+Minor release for Pilot at the FCC
+
+* FCCACEDIRECTPILOT-7: Edits to Caller UI
+* FCCACEDIRECTPILOT-12: Date-limit the display of Call Stats in Management Dashboard
+* Captioning fixes
 
 ## Release Tag: v3.1
 
