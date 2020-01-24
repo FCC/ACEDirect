@@ -1,6 +1,35 @@
-![](images/adsmall.png)
-
 # ACE Direct
+
+![ACE Direct](images/adsmall.png)
+
+## Release Tag: v3.2.3
+
+Minor patch release
+
+* Add playback controls to Videomail display​
+* Fix distorted image on Agent Login page​
+* Add ability to press "enter" for outbound dialpad​
+* Add "Edit Agent" option in Management Dashboard​
+* Add persistent camera self-view to Agent interface​
+* Prevent simultaneous incoming calls and videomail preview
+* Prevent Agent status change when in call
+
+## Release Tag: v3.2.2
+
+Minor patch release
+
+* Clear data on Management Dashboard / Q re Abandoned Calls​
+* Remove "Back" button from landing page​
+* Edits to Call Landing Page​
+* Change URL for ACE Portal​, configurable
+
+## Release Tag: v3.2.1
+
+Minor patch release
+
+* Edits to Caller UI
+* Date-limit the display of Call Stats in Management Dashboard
+* Captioning fixes
 
 ## Release Tag: v3.2
 
@@ -12,14 +41,6 @@
 * Improved OpenAM manual installation instructions
 * Upgrade Node.js version
 * Improved overall manual installation procedures
-
-### Release Tag: v3.2.1
-
-Minor release for Pilot at the FCC
-
-* FCCACEDIRECTPILOT-7: Edits to Caller UI
-* FCCACEDIRECTPILOT-12: Date-limit the display of Call Stats in Management Dashboard
-* Captioning fixes
 
 ## Release Tag: v3.1
 
@@ -97,6 +118,7 @@ Minor release for Pilot at the FCC
 * Additional software changes to improve scalability and reliability
 
 ## Release Tag: v1.0 (11.02.2016)
+
 Release v1.0 of ACE Direct (initial public release)
 
 * This ACE Direct public release software was demonstrated to the FCC.
@@ -124,7 +146,6 @@ Release v1.0 of ACE Direct (initial public release)
 * new AD logo on login page
 * new AD logo on complaint form
 
-
 ## Release Tag: 20161028qa
 
 * Implement "in call" icons for both queues
@@ -144,7 +165,7 @@ Release v1.0 of ACE Direct (initial public release)
 
 ## Release Tag: 20161025qa
 
-### CSR Portal
+### CSR Portal Part 2
 
 * Can now update problem description (in Zendesk, this is a new comment field from the CSR)
 * Now handling Consumer calling in on Linphone
@@ -155,7 +176,7 @@ Release v1.0 of ACE Direct (initial public release)
 
 ## Release Tag: 20161024qa
 
-### CSR Portal
+### CSR Portal Part 1
 
 * Display queues that agent belongs to
 * RTT is now character-by-character
