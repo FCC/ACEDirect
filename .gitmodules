@@ -34,9 +34,6 @@
 [submodule "iam"]
 	path = iam
 	url = https://github.com/mitrefccace/iam.git
-[submodule "virtualagent"]
-	path = virtualagent
-	url = https://github.com/mitrefccace/virtualagent.git
 [submodule "dat"]
 	path = dat
 	url = https://github.com/mitrefccace/dat.git
