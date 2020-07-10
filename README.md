@@ -1,13 +1,33 @@
 # ACE Direct
 
-![ACEDIRECT](images/adsmall.png)
+![AD Image](images/adsmall.png)
 
 Accessible Communications for Everyone (ACE) Direct is a Direct Video Calling (DVC) platform that enables direct calling from deaf and hard-of-hearing individuals to an American Sign Language (ASL)-trained agent within an organization's call center. The agent handles the call using a video-capable phone with real-time video connection. To demonstrate the capabilities of DVC, the FCC and CAMH have further advanced the original auto-routing POC into a call center platform for two to ten customer service representatives.
 
-## Current Releases
+## Releases
 
-To get a current release of ACE Direct, check out the desired branch (`v3.2`, `v4.0`, ...) of this repo (`acedirect-public`) and all of its git submodules. If no release specific branch exists, check out the `master` branch.
+See the [RELEASENOTES.md](RELEASENOTES.md) file for information on the current and past ACE Direct releases.
 
-## Older Releases
+## Clean installation
 
-To get an older release of ACE Direct, check out the `master` branch of this repo (`acedirect-public`) and all of its git submodules. Then check out the desired release tag.
+To install ACE Direct, see the [INSTALLATION.md](installation/INSTALLATION.md) file in the [installation](installation) folder. The documents in this folder describe how to install the components of the ACE Direct system.
+
+## Downloading the software
+
+This repo contains several Git submodules and additional documentation. To download the software, clone this repo and init/update the submodules:
+
+```sh
+$  git clone git@github.com:mitrefccace/acedirect-public.git
+$
+$  cd acedirect-public
+$  git submodule init
+$  git submodule update
+```
+
+For an ACE Direct installation, you may download the individual repos only.
+
+## Documentation
+
+Please see the *docs* folder for official ACE Direct documentation about the project. See the README.md and other files in the Git submodules for documentation on the individual ACE Direct repos.
+
+
