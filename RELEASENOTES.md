@@ -2,28 +2,15 @@
 
 ![ACE Direct](images/adsmall.png)
 
-## Release Tag: v4.0
-
-Major release
-
-* New feature: Multi-party calling among consumer and agents
-* New feature: Screen sharing between consumer and agent
-* New feature: File sharing between consumer and agent
-* New Kurento media server for advanced media capabilities
-* New videomail system, better video quality, increased stability and scalability
-* New SIP proxy server for improved security
-* New iTRS All Call Query for verifying VRS numbers
-* New Outbound calling dialog
-
 ## Release Tag: v3.2.3
 
 Minor patch release
 
-* Add playback controls to Videomail display
-* Fix distorted image on Agent Login page
-* Add ability to press "enter" for outbound dialpad
-* Add "Edit Agent" option in Management Dashboard
-* Add persistent camera self-view to Agent interface
+* Add playback controls to Videomail display​
+* Fix distorted image on Agent Login page​
+* Add ability to press "enter" for outbound dialpad​
+* Add "Edit Agent" option in Management Dashboard​
+* Add persistent camera self-view to Agent interface​
 * Prevent simultaneous incoming calls and videomail preview
 * Prevent Agent status change when in call
 
@@ -31,10 +18,10 @@ Minor patch release
 
 Minor patch release
 
-* Clear data on Management Dashboard / Q re Abandoned Calls
-* Remove "Back" button from landing page
-* Edits to Call Landing Page
-* Change URL for ACE Portal, configurable
+* Clear data on Management Dashboard / Q re Abandoned Calls​
+* Remove "Back" button from landing page​
+* Edits to Call Landing Page​
+* Change URL for ACE Portal​, configurable
 
 ## Release Tag: v3.2.1
 
