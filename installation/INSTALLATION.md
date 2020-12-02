@@ -83,10 +83,36 @@ Additionally, install the videomail server on `acekms`. Clone the `kurento-aster
 
 The **acenode** server hosts several Node.js and application servers. Here are instructions to deploy **acenode**:
 
-1. Install Node.js `v10.16.0`, npm `6.9.0`, and pm2 `4.4.0`.
+1. Log into the ACE Direct user account.
+1. Install Node.js `v12.18.2` and pm2 `4.4.0`. Optionally use `n` manager to manage Node.js versions:
+
+    * Make the following changes in `~/.bash_profile`:
+
+      ```bash
+      N_PREFIX=$HOME/.n
+      PATH=$N_PREFIX/bin:$PATH:$HOME/.local/bin:$HOME/bin
+      export PATH N_PREFIX
+      ```
+
+    * From the terminal:
+
+      ```bash
+      $  cd
+      $
+      $  . .bash_profile
+      $  mkdir .n
+      $  npm install -g n
+      $  n 12.18.2  # or desired version, e.g., n latest
+      $  node -v
+      ```
+
 1. Install `git`.
 1. Create an ACE Direct user account to host the Node.js servers, for example `acedirect`.
 1. Install and configure Redis. See [Redis Quick Start](https://redis.io/topics/quickstart).
+
+    * When configuring Redis, edit `/etc/redis.conf`. Uncomment the `requirepass somepassword` line. Change `somepassword` to a secret password. Restart Redis.
+    * On the Node.js server, edit `~/dat/config.json`. Update the `redis.auth` variable to match `somepassword` from the previous step. Restart the Node.js servers.
+
 1. Install and configure MongoDB. See [MongoDB installation instructions](https://docs.mongodb.com/manual/).
 1. Update the `/etc/hosts` file with the private IP addresses of `acenode.domain.com`, `aceopenam.domain.com`, `acestun.domain.com`, `aceturn.domain.com`, `aceproxy.domain.com`, `acesip.domain.com`, `acekms.domain.com`, and `portal.domain.com`.
 1. From the terminal, go into the ACE Direct user account: `cd /home/acedirect`).
@@ -150,6 +176,17 @@ The **acenode** server hosts several Node.js and application servers. Here are i
   $  pm2 stop all  # stop
   $  pm2 stop 0  # stop ID 0
   $  pm2 delete all  # remove all servers from pm2
+  ```
+
+1. Making Node.js servers start on reboot:
+
+  ```bash
+  $  cd  # ACE Direct user account
+  $
+  $  pm2 start process.json  # start all node servers
+  $  pm2 save
+  $  pm2 startup
+  $  # now node.js servers will start on boot
   ```
 
 ### Database Server
@@ -216,6 +253,7 @@ After rebooting servers, ACE Direct requires starting services in a specific ord
 * Set the `common:debug_level` parameter in `/home/acedirect/dat/config.json` to *ALL* to receive all messages in the log files.
 * Check the `logs` folder in each application folder for errors or warnings: `ls /home/acedirect/*/logs/*.log`
 * Verify that OpenAM, Redis, MongoDB, NGINX, and MySQL are running.
+* Verify that there are no firewalls blocking internal ports (e.g., `firewalld` on OpenAM blocking access to `8443`).
 * Does the BusyLight device respond? Try the self-test mode on the `lightserver.jar` UI.
 * Verify that the `/etc/hosts` file is configured correctly.
 * Verify that the `/etc/nginx/nginx.conf` file is configured correctly.
