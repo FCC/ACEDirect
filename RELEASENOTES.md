@@ -2,6 +2,33 @@
 
 ![ACE Direct](images/adsmall.png)
 
+## Release v5.0, 02/05/2021
+
+* Language Translation – The Agent and Consumer portals now provide the option to display captions and text chats in languages other than the default English language. The Agent or Consumer must select their preferred language prior to accepting or making a call.
+* Agent Auto Away – The Agent portal now automatically changes the Agent’s status from Ready to Away after missing consecutive inbound calls. The default setting is 3, however, this is configurable.
+* Agent to Agent Chat/Broadcast Messaging – The Agent portal now provides messaging from Agent to Agent or to multiple agents simultaneously. 
+* Agent Call Totals – The Management portal now allows the manager to see the total number of calls as part of the Report feature. Also displayed in the Report option is the call data Top 10 States, Top 10 Area Codes, and Top 10 VRS Numbers.
+
+## Release v4.1, 10/30/2020
+
+* Call Blocking – Management portal page enables blocking/unblocking incoming calls from VRS devices and softphones, as well as web calls from the Consumer Portal.
+* Call History – Agent portal dialog to access inbound and outbound call history and place outbound calls
+* Videomail Notification – Popup notifications appear in the Agent portal when the call center receives new videomails.
+* Keyboard Shortcuts – Customizable keyboard shortcuts for actions in the Agent Portal
+* Call Statistics Report – The Management Portal reporting page provides daily call statistics, plots and the capability to download the data.
+
+## Release v4.0, 07/01/2020
+
+* Captioning – Automated Speech Recognition(ASR) engine speech-to-text captioning is now available in the Consumer and Agent portals.
+* WebRTC Media Server – ACEDirect now uses a Kurento WebRTC Media Server to enhance and improve ACE Direct’s voice, video, and data capabilities.
+* Videomail Enhancement – The media server implements higher quality videomail recordings, Interactive Video and Voice Response, and a countdown timer.
+* Containerization – OpenAM and Asterisk are now available as Docker containers.
+* Agent, Consumer, and Management Portal UI Enhancements – The web portals have better aspect ratios for video, element locations, element placement, and button sizing.
+* Captioning Demo Capability – ACE Direct now has a captioning preview feature that plays a mock captioning conversation between a Consumer and an Agent. This feature is for demonstration purposes only.
+* Multi-Party Calling – ACE Direct Agents and Consumers are able to participate in calls with up to four simultaneous callers on the same call. 
+* Screen Sharing – ACE Direct allows the caller to share their screen with another caller.
+* File Sharing – ACE Direct allows users to share/transfer filesfrom one user to another.
+
 ## Release Tag: v3.2.3
 
 Minor patch release
